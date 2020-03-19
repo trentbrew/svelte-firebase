@@ -1,5 +1,6 @@
 <script>
 	import { fade, fly } from 'svelte/transition';
+	import Login from "./Login.svelte";
 
 	export let name; //can be used in child components
 
@@ -12,23 +13,18 @@
 	}
 </script>
 
+<svelte:head>
+	<link rel="stylesheet" href=""><!--potential global styles-->
+</svelte:head>
+
 <main>
 	<h1>Hello {name}!</h1>
 	<!--p class="num">Number: {rando}</p-->
 	<hr>
-	<p>{ result }</p> <!-- a boolen case -->
-	<button class="button" on:click={setRando}>Randomize</button>
-	
-	<p>Your score is { result }</p>
 
-	<!--conditionals!-->
-	{#if result > 75}
-		<p transition:fade>top 25%</p>
-	{:else if result > 50}
-		<p in:fly={{x: 60, duration: 500}} out:fly={{x: -60, duration: 500}}>top 50%</p>
-	{:else}
-		<p>do better:p</p>
-	{/if}
+	<Login />
+
+
 </main>
 
 <style>
