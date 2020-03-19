@@ -42,6 +42,6 @@
         <button style="color: red" on:click={toggleStatus}>Incomplete</button>
     {/if}
 
-    <button> on:click={remove}X</button>
+    <button on:click={remove}>X</button>
 
 </li>

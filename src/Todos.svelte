@@ -12,6 +12,7 @@ const query = db.collection('todos').where('uid', '==', uid).orderBy('created');
 
 const todos = collectionData(query, 'id').pipe(startWith([]));
 
+//nice
 function add() {
     db.collection('todos').add({
         complete: false,
@@ -37,17 +38,24 @@ function removeItem(event) {
 </script>
 
 <section>
-<ul>
-    {#each $todos as todo}
-        <TodoItem {...todo} on:remove={removeItem} on:toggle={updateStatus} />
-    {/each}
-</ul>
+    <ul>
+        {#each $todos as todo}
+            <TodoItem {...todo} on:remove={removeItem} on:toggle={updateStatus} />
+        {/each}
+    </ul>
 
-<input type="text" bind:value={text}>
+    <input type="text" bind:value={text}>
 
-<hr>
+    <hr>
 
-<p>Your task: <strong>{ text }</strong></p>
+    <p>Your task: <strong>{ text }</strong></p>
 
-<button on:click={add}>Add task</button>
+    <button on:click={add}>Add task</button>
 </section>
+
+<style>
+ul {
+    background: #eee;
+    list-style: none;
+}
+</style>
